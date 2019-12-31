@@ -23,8 +23,8 @@ plugins {
 apply plugin: 'net.cazzar.gradle.modsio'
 
 version = "1.0.0"
-group = "com.examplemod"
-archivesBaseName = "ExampleMod-1.15.1"
+group = "io.github.trikzon"
+archivesBaseName = "Flora-Doubling-1.15.1"
 
 curseforge {
     apiKey = project.hasProperty("curseForgeApiKey") ? project.curseForgeApiKey : "empty"
@@ -243,7 +243,7 @@ task execBuilds {
         //TODO Test if concurrent even does it any differently
         if (!project.hasProperty("concurrent") || !project.concurrent)
             procFabric.waitForOrKill(1800000)
-        def procForge = "./gradlew build -Pversion=$version -Pgroup=$group -PoutputJarBaseName=$archivesBaseName".execute(null, new File("forge"))
+        def procForge = "./gradlew build -Pversion=$version -Pgroup=$group -PoutputJarBaseName=$archivesBaseName -Dorg.gradle.java.home=/usr/lib/jvm/java-8-openjdk-amd64".execute(null, new File("forge"))
         procForge.consumeProcessOutput(sout, serr)
         if (project.hasProperty("concurrent") && project.concurrent)
             procFabric.waitForOrKill(1800000)

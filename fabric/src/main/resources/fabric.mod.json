@@ -1,29 +1,29 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "floradoubling",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Flora Doubling",
+  "description": "Allows doubling a flower by using bone meal on it",
   "authors": [
-    "Me!"
+    "Trikzon"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/flora-doubling",
+    "sources": "https://github.com/Trikzon/Flora-Doubling"
   },
 
-  "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "license": "LGPL-3.0-or-later",
+  "icon": "assets/floradoubling/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.fabric.ExampleMod"
+      "io.github.trikzon.floradoubling.fabric.FloraDoubling"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "floradoubling.mixins.json"
   ],
 
   "depends": {
