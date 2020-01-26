@@ -23,7 +23,7 @@ allprojects {
 archivesBaseName = project.hasProperty("outputJarBaseName") ? project.outputJarBaseName : "forge"
 
 minecraft {
-    mappings channel: 'snapshot', version: '20191229-1.14.3'
+    mappings channel: 'snapshot', version: '20200125-1.15.1'
     
     runs {
         client = {
@@ -48,7 +48,7 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.15.1-30.0.15'
+    minecraft 'net.minecraftforge:forge:1.15.2-31.0.1'
 }
 
 jar {

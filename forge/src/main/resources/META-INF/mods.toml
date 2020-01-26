@@ -21,10 +21,3 @@ Allows doubling a flower by using bone meal on it
     versionRange="[30,)"
     ordering="NONE"
     side="BOTH"
-
-[[dependencies.floradoubling]]
-    modId="minecraft"
-    mandatory=true
-    versionRange="[1.15.1]"
-    ordering="NONE"
-    side="BOTH"

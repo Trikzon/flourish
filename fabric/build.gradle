@@ -8,6 +8,7 @@ targetCompatibility = JavaVersion.VERSION_1_8
 archivesBaseName = project.hasProperty("outputJarBaseName") ? project.outputJarBaseName : "fabric"
 
 minecraft {
+	refmapName = "floradoubling-refmap.json"
 }
 
 dependencies {

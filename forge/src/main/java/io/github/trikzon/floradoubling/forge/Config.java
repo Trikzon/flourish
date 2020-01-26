@@ -16,7 +16,7 @@
  *
  * File: Config.java
  * Date: 2019-12-30
- * Revision:
+ * Revision: 2020-01-25 - Update to 1.15.2
  * Author: Trikzon
  * =========================================================================== */
 package io.github.trikzon.floradoubling.forge;
@@ -68,7 +68,7 @@ public class Config {
     }
 
     @SubscribeEvent
-    public static void onReload(final ModConfig.ConfigReloading event) {
+    public static void onReload(final ModConfig.Reloading event) {
 
     }
 }
