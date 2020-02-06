@@ -14,10 +14,3 @@ authors="Trikzon"
 description='''
 Allows doubling a flower by using bone meal on it
 '''
-
-[[dependencies.floradoubling]]
-    modId="forge"
-    mandatory=true
-    versionRange="[30,)"
-    ordering="NONE"
-    side="BOTH"

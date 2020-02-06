@@ -22,18 +22,19 @@ plugins {
 }
 apply plugin: 'net.cazzar.gradle.modsio'
 
-version = "1.0.0"
+version = "1.15.2-20w06a-1.0.0"
 group = "io.github.trikzon"
-archivesBaseName = "Flora-Doubling-1.15.2"
+archivesBaseName = "floradoubling"
 
 curseforge {
     apiKey = project.hasProperty("curseForgeApiKey") ? project.curseForgeApiKey : "empty"
     project {
     	//Your curseforge project id here
-        id = '000000'
+        id = '332831'
         changelog = file('changelog.txt')
         //release, beta, or alpha
         releaseType = 'release'
+        addGameVersion '1.16-Snapshot'
         addGameVersion '1.15.2'
         addGameVersion 'Java 8'
         addGameVersion 'Forge'
@@ -42,25 +43,25 @@ curseforge {
             displayName = "$archivesBaseName-$version"
             relations{
                 //TODO list possible relation types for newcomers?
-                //optionalLibrary 'yourSoftDepHere'
+                requiredLibrary 'fabric-api'
             }
         }
-        addArtifact(new File(buildDir, "$archivesBaseName-$version-forge-deobf.jar")) {
-            displayName = "$archivesBaseName-$version-forge-deobf"
-            changelog = "*This is a file for mod developers. If you don't know what to do with it, don't use it!*"
-        }
-        addArtifact(new File(buildDir, "$archivesBaseName-$version-fabric-dev.jar")) {
-            displayName = "$archivesBaseName-$version-fabric-dev"
-            changelog = "*This is a file for mod developers. If you don't know what to do with it, don't use it!*"
-        }
-        addArtifact(new File(buildDir, "$archivesBaseName-$version-fabric-sources.jar")) {
-            displayName = "$archivesBaseName-$version-fabric-sources"
-            changelog = "*This is a file for mod developers. If you don't know what to do with it, don't use it!*"
-        }
-        addArtifact(new File(buildDir, "$archivesBaseName-$version-fabric-sources-dev.jar")) {
-            displayName = "$archivesBaseName-$version-fabric-sources-dev"
-            changelog = "*This is a file for mod developers. If you don't know what to do with it, don't use it!*"
-        }
+//        addArtifact(new File(buildDir, "$archivesBaseName-$version-forge-deobf.jar")) {
+//            displayName = "$archivesBaseName-$version-forge-deobf"
+//            changelog = "*This is a file for mod developers. If you don't know what to do with it, don't use it!*"
+//        }
+//        addArtifact(new File(buildDir, "$archivesBaseName-$version-fabric-dev.jar")) {
+//            displayName = "$archivesBaseName-$version-fabric-dev"
+//            changelog = "*This is a file for mod developers. If you don't know what to do with it, don't use it!*"
+//        }
+//        addArtifact(new File(buildDir, "$archivesBaseName-$version-fabric-sources.jar")) {
+//            displayName = "$archivesBaseName-$version-fabric-sources"
+//            changelog = "*This is a file for mod developers. If you don't know what to do with it, don't use it!*"
+//        }
+//        addArtifact(new File(buildDir, "$archivesBaseName-$version-fabric-sources-dev.jar")) {
+//            displayName = "$archivesBaseName-$version-fabric-sources-dev"
+//            changelog = "*This is a file for mod developers. If you don't know what to do with it, don't use it!*"
+//        }
     }
     options {
         javaIntegration = false
