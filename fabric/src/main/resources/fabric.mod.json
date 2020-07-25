@@ -19,7 +19,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.trikzon.flora_doubling.FloraDoubling"
+      "com.trikzon.flora_doubling.fabric.FloraDoubling"
     ]
   },
   "mixins": [

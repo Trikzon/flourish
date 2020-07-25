@@ -7,7 +7,7 @@
  * (at your option) any later version.
  * https://www.gnu.org/licenses/
  */
-package com.trikzon.flora_doubling.mixin;
+package com.trikzon.flora_doubling.fabric.mixin;
 
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.block.dispenser.DispenserBehavior;

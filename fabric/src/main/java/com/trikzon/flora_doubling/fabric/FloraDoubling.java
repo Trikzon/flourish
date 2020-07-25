@@ -7,11 +7,13 @@
  * (at your option) any later version.
  * https://www.gnu.org/licenses/
  */
-package com.trikzon.flora_doubling;
+package com.trikzon.flora_doubling.fabric;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.trikzon.flora_doubling.mixin.DispenserBlockAccessor;
+import com.trikzon.flora_doubling.Config;
+import com.trikzon.flora_doubling.fabric.mixin.DispenserBlockAccessor;
+import com.trikzon.flora_doubling.fabric.mixin.DispenserBlockAccessor;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.tag.TagRegistry;
@@ -50,7 +52,7 @@ public class FloraDoubling implements ModInitializer
     public static final String MOD_ID = "flora-doubling";
     public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
     private static final File MOD_CONFIG_FILE = new File("./config/" + MOD_ID + ".json");
-    public static ConfigBean CONFIG = new ConfigBean();
+    public static Config.ConfigBean CONFIG = new Config.ConfigBean();
 
     public static final Tag<Block> DOUBLING_FLORA = TagRegistry.block(new Identifier(MOD_ID, "doubling_flora"));
 
@@ -126,61 +128,6 @@ public class FloraDoubling implements ModInitializer
         return true;
     }
 
-    public static class ConfigBean
-    {
-        public ArrayList<String> doublingFlora = new ArrayList<>();
-        public boolean dispenser = true;
-    }
-
-    private void readConfigFile()
-    {
-        try(FileReader file = new FileReader(MOD_CONFIG_FILE))
-        {
-            Gson gson = new Gson();
-            CONFIG = gson.fromJson(file, ConfigBean.class);
-        }
-        catch (IOException e)
-        {
-            LOGGER.error("Failed to read from config file.");
-        }
-    }
-
-    private void setDefaultConfig()
-    {
-        CONFIG.doublingFlora.add("minecraft:dandelion");
-        CONFIG.doublingFlora.add("minecraft:poppy");
-        CONFIG.doublingFlora.add("minecraft:blue_orchid");
-        CONFIG.doublingFlora.add("minecraft:allium");
-        CONFIG.doublingFlora.add("minecraft:azure_bluet");
-        CONFIG.doublingFlora.add("minecraft:red_tulip");
-        CONFIG.doublingFlora.add("minecraft:orange_tulip");
-        CONFIG.doublingFlora.add("minecraft:white_tulip");
-        CONFIG.doublingFlora.add("minecraft:pink_tulip");
-        CONFIG.doublingFlora.add("minecraft:oxeye_daisy");
-        CONFIG.doublingFlora.add("minecraft:cornflower");
-        CONFIG.doublingFlora.add("minecraft:lily_of_the_valley");
-        CONFIG.doublingFlora.add("minecraft:wither_rose");
-    }
-
-    private void writeConfigFile(boolean withDefaults)
-    {
-        MOD_CONFIG_FILE.getParentFile().mkdirs();
-        try(FileWriter file = new FileWriter(MOD_CONFIG_FILE))
-        {
-            if (withDefaults)
-            {
-                setDefaultConfig();
-            }
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            file.write(gson.toJson(CONFIG));
-            file.flush();
-        }
-        catch (IOException e)
-        {
-            LOGGER.error("Failed to write to config file.");
-        }
-    }
-
     private void registerDispenserBehaviors()
     {
         if (!CONFIG.dispenser) return;
@@ -217,10 +164,13 @@ public class FloraDoubling implements ModInitializer
     @Override
     public void onInitialize()
     {
-        if (MOD_CONFIG_FILE.exists())
-            readConfigFile();
-        else
-            writeConfigFile(true);
+        Config config = new Config(MOD_CONFIG_FILE, LOGGER);
+        if (MOD_CONFIG_FILE.exists()) {
+            Config.ConfigBean c = config.readConfigFile();
+            if (c != null) CONFIG = c;
+        } else {
+            config.writeConfigFile(CONFIG, true);
+        }
 
         UseBlockCallback.EVENT.register((playerEntity, world, hand, blockHitResult) -> {
             boolean success = grow(playerEntity.getStackInHand(hand), world, blockHitResult.getBlockPos(), true);
