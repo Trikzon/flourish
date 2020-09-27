@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.trikzon.flora_doubling.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+  ],
+  "client": [
+    "DispenserBlockAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
