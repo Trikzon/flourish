@@ -4,13 +4,13 @@
   "version": "${version}",
 
   "name": "Flora Doubling",
-  "description": "Allows doubling a flower by using bone meal. Similar to large flowers in vanilla.",
+  "description": "Double your flowers using bone meal, similar to tall flowers in vanilla",
   "authors": [
     "Trikzon"
   ],
   "contact": {
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/flora-doubling",
-    "sources": "https://github.com/Trikzon/flora-doubling"
+    "sources": "https://github.com/Trikzon/flora-doubling-fabric"
   },
 
   "license": "MIT",
