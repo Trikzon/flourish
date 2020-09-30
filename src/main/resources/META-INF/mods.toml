@@ -1,0 +1,16 @@
+modLoader="javafml"
+loaderVersion="[34,)"
+license="MIT"
+issueTrackerURL="https://www.github.com/Trikzon/flora-doubling/issues"
+[[mods]]
+modId="flora-doubling"
+version="${file.jarVersion}"
+displayName="Flora Doubling"
+# updateJSONURL="http://myurl.me/"
+displayURL="https://www.github.com/Trikzon/flora-doubling"
+# logoFile="examplemod.png"
+# credits="Thanks for this example mod goes to Java"
+authors="Trikzon"
+description='''
+Double your flowers using bone meal, similar to tall flowers in vanilla.
+'''
