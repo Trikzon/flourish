@@ -114,43 +114,26 @@ public class FloraDoubling implements ModInitializer {
     // Copied from BoneMealItem but edited to create the particles from the server instead of the client.
     // This is so that dispensers will emit particles when growing flowers.
     private void createParticles(ServerWorld world, BlockPos pos, int count) {
+        if (count == 0)
+        {
+            count = 15;
+        }
+
         Random random = world.random;
         BlockState blockState = world.getBlockState(pos);
-
-        if (!blockState.isAir()) {
-            if (count == 0) count = 15;
-            double d = 0.5D;
-            double g;
-            if (blockState.isOf(Blocks.WATER)) {
-                count *= 3;
-                g = 1.0D;
-                d = 3.0D;
-            } else if (blockState.isOpaqueFullCube(world, pos)) {
-                pos = pos.up();
-                count *= 4;
-                d = 3.0D;
-                g = 1.0D;
-            } else {
-                g = blockState.getOutlineShape(world, pos).getMax(Direction.Axis.Y);
+        if (!blockState.isAir())
+        {
+            for(int i = 0; i < count; ++i)
+            {
+                double x = ((float)pos.getX() + random.nextFloat());
+                double y = (double)pos.getY() + (double)random.nextFloat() * blockState.getOutlineShape(world, pos).getMaximum(Direction.Axis.Y);
+                double z = ((float)pos.getZ() + random.nextFloat());
+                double deltaX = random.nextGaussian() * 0.02D;
+                double deltaY = random.nextGaussian() * 0.02D;
+                double deltaZ = random.nextGaussian() * 0.02D;
+                world.spawnParticles(ParticleTypes.HAPPY_VILLAGER, x, y, z, 1, deltaX, deltaY, deltaZ, 1.0);
             }
-            world.spawnParticles(
-                    ParticleTypes.HAPPY_VILLAGER,
-                    (double)pos.getX() + 0.5D, (double)pos.getY() + 0.5D, (double)pos.getZ() + 0.5D,
-                    1, 0.0D, 0.0D, 0.0D, 1.0
-            );
 
-            for (int i = 0; i < count; ++i) {
-                double h = random.nextGaussian() * 0.02D;
-                double j = random.nextGaussian() * 0.02D;
-                double k = random.nextGaussian() * 0.02D;
-                double l = 0.5D - d;
-                double m = (double)pos.getX() + l + random.nextDouble() * d * 2.0D;
-                double n = (double)pos.getY() + random.nextDouble() * g;
-                double o = (double)pos.getZ() + l + random.nextDouble() * d * 2.0D;
-                if (!world.getBlockState((new BlockPos(m, n, o)).down()).isAir()) {
-                    world.spawnParticles(ParticleTypes.HAPPY_VILLAGER, m, n, o, 1, h, j, k, 1.0);
-                }
-            }
         }
     }
 }
