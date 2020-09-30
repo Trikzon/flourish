@@ -2,12 +2,11 @@ package com.trikzon.flora_doubling;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.BoneMealItem;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.ITag;
+import net.minecraft.tags.Tag;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.BonemealEvent;
@@ -24,7 +23,7 @@ public class FloraDoubling {
     public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
 
     public static final File MOD_CONFIG_FILE = new File("./config/" + MOD_ID + ".json");
-    public static final ITag.INamedTag<Block> DOUBLING_FLORA_TAG = BlockTags.makeWrapperTag(MOD_ID + ":doubling_flora");
+    public static final Tag<Block> DOUBLING_FLORA_TAG = new BlockTags.Wrapper(new ResourceLocation(MOD_ID, "doubling_flora"));
 
     public static Config.ConfigBean CONFIG = new Config.ConfigBean();
 
