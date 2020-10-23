@@ -14,6 +14,7 @@ public class Config {
         public boolean dispenser = true;
         public boolean useSmallFlowersTag = true;
         public boolean useTallFlowersTag = true;
+        public boolean allowWitherRoses = false;
     }
 
     public static ConfigBean read() {

@@ -4,10 +4,7 @@ import com.trikzon.flora_doubling.mixin.DispenserBlockAccessor;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.tag.TagRegistry;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.DispenserBlock;
+import net.minecraft.block.*;
 import net.minecraft.block.dispenser.DispenserBehavior;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BoneMealItem;
@@ -44,7 +41,8 @@ public class FloraDoubling implements ModInitializer {
     public static Config.ConfigBean CONFIG = new Config.ConfigBean();
 
     boolean isTargetFlower(Block block) {
-        return (DOUBLING_FLORA_TAG.contains(block) || CONFIG.doublingFlora.contains(getId(block.asItem())) ||
+        return ((block.getClass() != WitherRoseBlock.class) || CONFIG.allowWitherRoses) &&
+                (DOUBLING_FLORA_TAG.contains(block) || CONFIG.doublingFlora.contains(getId(block.asItem())) ||
                 (SMALL_FLOWERS_TAG.contains(block) && CONFIG.useSmallFlowersTag) ||
                 (TALL_FLOWERS_TAG.contains(block) && CONFIG.useTallFlowersTag));
     }
