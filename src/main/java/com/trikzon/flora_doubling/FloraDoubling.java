@@ -38,8 +38,16 @@ public class FloraDoubling implements ModInitializer {
 
     public static final File MOD_CONFIG_FILE = new File("./config/" + MOD_ID + ".json");
     public static final Tag<Block> DOUBLING_FLORA_TAG = TagRegistry.block(new Identifier(MOD_ID, "doubling_flora"));
+    public static final Tag<Block> SMALL_FLOWERS_TAG = TagRegistry.block(new Identifier("minecraft", "small_flowers"));
+    public static final Tag<Block> TALL_FLOWERS_TAG = TagRegistry.block(new Identifier("minecraft", "tall_flowers"));
 
     public static Config.ConfigBean CONFIG = new Config.ConfigBean();
+
+    boolean isTargetFlower(Block block) {
+        return (DOUBLING_FLORA_TAG.contains(block) || CONFIG.doublingFlora.contains(getId(block.asItem())) ||
+                (SMALL_FLOWERS_TAG.contains(block) && CONFIG.useSmallFlowersTag) ||
+                (TALL_FLOWERS_TAG.contains(block) && CONFIG.useTallFlowersTag));
+    }
 
     @Override
     public void onInitialize() {
@@ -81,7 +89,7 @@ public class FloraDoubling implements ModInitializer {
 
             BlockPos pos = pointer.getBlockPos().offset(pointer.getBlockState().get(DispenserBlock.FACING));
             Block block = pointer.getWorld().getBlockState(pos).getBlock();
-            if (DOUBLING_FLORA_TAG.contains(block) || CONFIG.doublingFlora.contains(getId(block.asItem()))) {
+            if (isTargetFlower(block)) {
                 boolean success = grow(stack, pointer.getWorld(), pos, false);
                 if (success) {
                     stack.decrement(1);
@@ -91,10 +99,12 @@ public class FloraDoubling implements ModInitializer {
         }));
     }
 
+
+
     private boolean grow(ItemStack stack, World world, BlockPos pos, boolean particlesOnClient) {
         if (!(stack.getItem() instanceof BoneMealItem)) return false;
         Block block = world.getBlockState(pos).getBlock();
-        if (!(DOUBLING_FLORA_TAG.contains(block) || CONFIG.doublingFlora.contains(getId(block.asItem()))))
+        if (!isTargetFlower(block))
             return false;
 
         if (world.isClient && particlesOnClient) {
