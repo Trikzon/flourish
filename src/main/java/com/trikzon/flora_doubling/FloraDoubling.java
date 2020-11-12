@@ -1,6 +1,6 @@
 package com.trikzon.flora_doubling;
 
-import com.trikzon.flora_doubling.mixin.DispenserBlockAccessor;
+import com.trikzon.flora_doubling.dispenser.BoneMealDispenserBehavior;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.tag.TagRegistry;
@@ -8,7 +8,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.DispenserBlock;
-import net.minecraft.block.dispenser.DispenserBehavior;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BoneMealItem;
 import net.minecraft.item.Item;
@@ -52,8 +51,8 @@ public class FloraDoubling implements ModInitializer {
             Config.write(CONFIG, true);
         }
 
+        DispenserBlock.registerBehavior(Items.BONE_MEAL, new BoneMealDispenserBehavior());
         UseBlockCallback.EVENT.register(this::onUseBlock);
-        registerDispenserBehaviors();
     }
 
     private ActionResult onUseBlock(PlayerEntity player, World world, Hand hand, BlockHitResult result) {
@@ -64,31 +63,6 @@ public class FloraDoubling implements ModInitializer {
             player.getStackInHand(hand).decrement(1);
         }
         return ActionResult.SUCCESS;
-    }
-
-    private void registerDispenserBehaviors() {
-        if (!CONFIG.dispenser) return;
-
-        Map<Item, DispenserBehavior> behaviors = ((DispenserBlockAccessor) Blocks.DISPENSER).getBEHAVIORS();
-
-        // Overwriting the behavior linked to Items.BONE_MEAL
-        DispenserBehavior behavior = behaviors.get(Items.BONE_MEAL);
-        DispenserBlock.registerBehavior(Items.BONE_MEAL, ((pointer, stack) -> {
-            ItemStack preResult = behavior.dispense(pointer, stack);
-            if (!preResult.equals(stack) || stack.getCount() != preResult.getCount()) {
-                return preResult;
-            }
-
-            BlockPos pos = pointer.getBlockPos().offset(pointer.getBlockState().get(DispenserBlock.FACING));
-            Block block = pointer.getWorld().getBlockState(pos).getBlock();
-            if (DOUBLING_FLORA_TAG.contains(block) || CONFIG.doublingFlora.contains(getId(block.asItem()))) {
-                boolean success = grow(stack, pointer.getWorld(), pos, false);
-                if (success) {
-                    stack.decrement(1);
-                }
-            }
-            return stack;
-        }));
     }
 
     private boolean grow(ItemStack stack, World world, BlockPos pos, boolean particlesOnClient) {
