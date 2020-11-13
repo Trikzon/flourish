@@ -40,7 +40,7 @@ public class FloraDoubling implements ModInitializer {
 
     public static Config.ConfigBean CONFIG = new Config.ConfigBean();
 
-    boolean isTargetFlower(Block block) {
+    public static boolean isTargetFlower(Block block) {
         return ((block.getClass() != WitherRoseBlock.class) || CONFIG.allowWitherRoses) &&
                 (DOUBLING_FLORA_TAG.contains(block) || CONFIG.doublingFlora.contains(getId(block.asItem())) ||
                 (SMALL_FLOWERS_TAG.contains(block) && CONFIG.useSmallFlowersTag) ||

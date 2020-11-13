@@ -19,7 +19,7 @@ public class BoneMealDispenserBehavior implements DispenserBehavior {
             BlockPos pos = pointer.getBlockPos().offset(pointer.getBlockState().get(DispenserBlock.FACING));
             Block block = pointer.getWorld().getBlockState(pos).getBlock();
 
-            if (FloraDoubling.DOUBLING_FLORA_TAG.contains(block) || FloraDoubling.CONFIG.doublingFlora.contains(FloraDoubling.getId(block.asItem()))) {
+            if (FloraDoubling.isTargetFlower(block)) {
                 Block.dropStack(pointer.getWorld(), pos, new ItemStack(block, 1));
             }
             return stack;
