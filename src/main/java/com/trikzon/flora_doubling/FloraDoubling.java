@@ -48,7 +48,7 @@ public class FloraDoubling implements ModInitializer {
                 CONFIG = config;
             }
         } else {
-            Config.write(CONFIG, true);
+            Config.write(CONFIG);
         }
 
         DispenserBlock.registerBehavior(Items.BONE_MEAL, new BoneMealDispenserBehavior());

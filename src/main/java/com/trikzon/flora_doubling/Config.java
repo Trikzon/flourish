@@ -28,15 +28,12 @@ public class Config {
         }
     }
 
-    public static void write(ConfigBean config, boolean withDefaults) {
+    public static void write(ConfigBean config) {
         if (!FloraDoubling.MOD_CONFIG_FILE.getParentFile().exists() &&
             !FloraDoubling.MOD_CONFIG_FILE.getParentFile().mkdirs()) {
             FloraDoubling.LOGGER.error("Failed to write the config file as parent directories couldn't be made.");
         }
         try (FileWriter file = new FileWriter(FloraDoubling.MOD_CONFIG_FILE)) {
-            if (withDefaults) {
-                setDefaults(config);
-            }
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             file.write(gson.toJson(config));
             file.flush();
@@ -44,8 +41,5 @@ public class Config {
         catch (IOException e) {
             FloraDoubling.LOGGER.error("Failed to write the config file.");
         }
-    }
-
-    private static void setDefaults(ConfigBean config) {
     }
 }
