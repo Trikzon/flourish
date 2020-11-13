@@ -23,7 +23,7 @@
     ]
   },
   "mixins": [
-    "flora-doubling.mixins.json"
+
   ],
 
   "depends": {
