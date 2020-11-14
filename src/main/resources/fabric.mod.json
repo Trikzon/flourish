@@ -23,11 +23,9 @@
     ]
   },
   "mixins": [
-    "flora-doubling.mixins.json"
   ],
 
   "depends": {
-    "fabric": "*",
-    "minecraft": "1.15.x"
+    "fabric": "*"
   }
 }

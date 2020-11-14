@@ -12,6 +12,9 @@ public class Config {
     public static class ConfigBean {
         public ArrayList<String> doublingFlora = new ArrayList<>();
         public boolean dispenser = true;
+        public boolean useSmallFlowersTag = true;
+        public boolean useTallFlowersTag = true;
+        public boolean allowWitherRoses = false;
     }
 
     public static ConfigBean read() {
@@ -25,15 +28,12 @@ public class Config {
         }
     }
 
-    public static void write(ConfigBean config, boolean withDefaults) {
+    public static void write(ConfigBean config) {
         if (!FloraDoubling.MOD_CONFIG_FILE.getParentFile().exists() &&
             !FloraDoubling.MOD_CONFIG_FILE.getParentFile().mkdirs()) {
             FloraDoubling.LOGGER.error("Failed to write the config file as parent directories couldn't be made.");
         }
         try (FileWriter file = new FileWriter(FloraDoubling.MOD_CONFIG_FILE)) {
-            if (withDefaults) {
-                setDefaults(config);
-            }
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             file.write(gson.toJson(config));
             file.flush();
@@ -41,20 +41,5 @@ public class Config {
         catch (IOException e) {
             FloraDoubling.LOGGER.error("Failed to write the config file.");
         }
-    }
-
-    private static void setDefaults(ConfigBean config) {
-        config.doublingFlora.add("minecraft:dandelion");
-        config.doublingFlora.add("minecraft:poppy");
-        config.doublingFlora.add("minecraft:blue_orchid");
-        config.doublingFlora.add("minecraft:allium");
-        config.doublingFlora.add("minecraft:azure_bluet");
-        config.doublingFlora.add("minecraft:red_tulip");
-        config.doublingFlora.add("minecraft:orange_tulip");
-        config.doublingFlora.add("minecraft:white_tulip");
-        config.doublingFlora.add("minecraft:pink_tulip");
-        config.doublingFlora.add("minecraft:oxeye_daisy");
-        config.doublingFlora.add("minecraft:cornflower");
-        config.doublingFlora.add("minecraft:lily_of_the_valley");
     }
 }
