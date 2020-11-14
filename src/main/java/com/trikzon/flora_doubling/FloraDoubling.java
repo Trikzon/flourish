@@ -45,7 +45,7 @@ public class FloraDoubling {
     }
 
     private void onBoneMeal(BonemealEvent event) {
-        if (!(CONFIG.dispenser && event.getPlayer() instanceof FakePlayer)) {
+        if (!(!CONFIG.dispenser && event.getPlayer() instanceof FakePlayer)) {
             boolean success = grow(event.getStack(), event.getWorld(), event.getPos());
             if (success) event.setResult(Event.Result.ALLOW);
         }
