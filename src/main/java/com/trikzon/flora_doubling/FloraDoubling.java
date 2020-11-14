@@ -62,8 +62,8 @@ public class FloraDoubling {
 
     public static boolean isTargetFlower(Block block) {
         return ((block.getClass() != WitherRoseBlock.class) || CONFIG.allowWitherRoses) &&
-                (DOUBLING_FLORA_TAG.contains(block) || CONFIG.doublingFlora.contains(block.getRegistryName().toString())) ||
-                (SMALL_FLOWERS_TAG.contains(block) && CONFIG.useSmallFlowersTag) ||
-                (TALL_FLOWERS_TAG.contains(block) && CONFIG.useTallFlowersTag);
+                (DOUBLING_FLORA_TAG.contains(block) || CONFIG.doublingFlora.contains(block.getRegistryName().toString()) ||
+                        (SMALL_FLOWERS_TAG.contains(block) && CONFIG.useSmallFlowersTag) ||
+                        (TALL_FLOWERS_TAG.contains(block) && CONFIG.useTallFlowersTag));
     }
 }
