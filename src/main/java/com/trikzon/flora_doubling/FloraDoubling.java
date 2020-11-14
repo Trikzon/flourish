@@ -26,8 +26,8 @@ public class FloraDoubling {
 
     public static final File MOD_CONFIG_FILE = new File("./config/" + MOD_ID + ".json");
     public static final Tag<Block> DOUBLING_FLORA_TAG = new BlockTags.Wrapper(new ResourceLocation(MOD_ID, "doubling_flora"));
-    public static final Tag<Block> SMALL_FLOWERS_TAG = BlockTags.SMALL_FLOWERS;
-    public static final Tag<Block> TALL_FLOWERS_TAG = BlockTags.TALL_FLOWERS;
+    public static final Tag<Block> SMALL_FLOWERS_TAG = new BlockTags.Wrapper(new ResourceLocation("minecraft", "small_flowers"));
+    public static final Tag<Block> TALL_FLOWERS_TAG = new BlockTags.Wrapper(new ResourceLocation("minecraft", "tall_flowers"));
 
     public static Config.ConfigBean CONFIG = new Config.ConfigBean();
 
