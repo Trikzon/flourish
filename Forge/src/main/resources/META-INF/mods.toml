@@ -1,0 +1,38 @@
+modLoader="javafml" #mandatory
+loaderVersion="[44,)" #mandatory
+license="LGPL-3.0-or-later"
+issueTrackerURL="https://github.com/trikzon/flourish/issues" #optional
+
+[[mods]] #mandatory
+modId="flourish" #mandatory
+version="${file.jarVersion}" #mandatory
+displayName="Flourish" #mandatory
+#updateJSONURL="" #optional
+displayURL="https://github.com/trikzon/flourish" #optional
+logoFile="assets/flourish/icon.png" #optional
+#credits="" #optional
+authors="Trikzon" #optional
+description='''
+Create more small flowers by using bonemeal.
+'''
+
+[[dependencies.flourish]] #optional
+    modId="forge" #mandatory
+    mandatory=true #mandatory
+    versionRange="[44,)" #mandatory
+    # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
+    ordering="NONE"
+    # Side this dependency is applied on - BOTH, CLIENT or SERVER
+    side="BOTH"
+
+[[dependencies.flourish]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.19.3,1.20)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.flourish]]
+    modId="ash"
+    mandatory=true
+    versionRange="[0.1.0,)"

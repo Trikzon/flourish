@@ -1,54 +1,32 @@
-# Flora Doubling 
-[![](http://cf.way2muchnoise.eu/full_332831_fabric.svg)](https://www.curseforge.com/minecraft/mc-mods/flora-doubling-fabric) [![](http://cf.way2muchnoise.eu/versions/332831.svg)](https://www.curseforge.com/minecraft/mc-mods/flora-doubling-fabric) 
-[![](http://cf.way2muchnoise.eu/full_410507_forge.svg)](https://www.curseforge.com/minecraft/mc-mods/flora-doubling) [![](http://cf.way2muchnoise.eu/versions/410507.svg)](https://www.curseforge.com/minecraft/mc-mods/flora-doubling) 
+# Flourish (formerly known as Flora Doubling)
+[![](http://cf.way2muchnoise.eu/full_332831_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/flourish)
+[![](https://img.shields.io/modrinth/dt/flourish?logo=modrinth&style=flat)](https://www.modrinth.com/mod/shuffle)
+[![](http://cf.way2muchnoise.eu/versions/332831.svg)](https://www.curseforge.com/minecraft/mc-mods/flourish)
 
-[YouTube Video Demonstration](https://www.youtube.com/watch?v=SebkrRJZ-GU)
+Use bonemeal to spread small flowers. This is a port of the Bedrock Edition mechanic of [Flower Farming](https://minecraft.fandom.com/wiki/Tutorials/Flower_farming).
 
-## What does this mod do?
-This mod allows you to use one bonemeal to duplicate a small flower.
-In vanilla, this already works for tall flowers but not small ones.
+[YouTube Video Demonstration](https://www.youtube.com/watch?v=SKGd66HaAWY)
 
-You can also use a dispenser with bonemeal to double flowers! :)
+## Configuration
+The configuration file is located at `.minecraft/config/flourish.json`.
 
-## Configuration:
-You can configure the mod in two ways.
-1. Edit the config file located at `.minecraft/config/flora-doubling.json`
-2. Use the tag with a datapack located at `flora-doubling/tags/blocks/doubling_flora.json`
-
-*If you use the tag, you **MUST** remove the flowers listed in the default config file.*
-
-The default config file:
-```
+### Default Config File
+```json
 {
-  "doublingFlora": [
-    "minecraft:dandelion",
-    "minecraft:poppy",
-    "minecraft:blue_orchid",
-    "minecraft:allium",
-    "minecraft:azure_bluet",
-    "minecraft:red_tulip",
-    "minecraft:orange_tulip",
-    "minecraft:white_tulip",
-    "minecraft:pink_tulip",
-    "minecraft:oxeye_daisy",
-    "minecraft:cornflower",
-    "minecraft:lily_of_the_valley"
-  ],
-  "dispenser": true
+  "version": 1,
+  "wither_rose": false,
+  "use_tall_flower_behavior": false
 }
 ```
 
-The default block tag:
-```
-{
-    "replace": false,
-    "values": [
+### Config Option Descriptions
+- `wither_rose`: When true, allows wither roses to be spread.
+- `use_tall_flower_behavior`: Previously, this mod made it so that bonemealing a small flower would spawn a small flower item just like it does for tall flowers. When true, this config replaces the Bedrock Edition mechanic with this mechanic. [YouTube Video Demonstration](https://youtu.be/SebkrRJZ-GU)
 
-    ]
-}
-```
+---
 
-## Other Information:
-- Report Bugs to https://github.com/Trikzon/flora-doubling/issues
-- Join my discord: https://discord.gg/aqXkvbJ
-- You can use this mod in your modpack
+Report any issues on [GitHub](https://github.com/Trikzon/flourish/issues). Chat on [Discord](https://discord.gg/aUwZKagWh2) in the `#mc-mods` channel.
+
+Support the development of my mods on [Ko-fi](https://ko-fi.com/X7X8D56YI).
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/X7X8D56YI)

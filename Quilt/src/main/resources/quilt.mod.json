@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "quilt_loader": {
+    "group": "com.diontryban.mods",
+    "id": "flourish",
+    "version": "${version}",
+    "metadata": {
+      "name": "Flourish",
+      "description": "Create more small flowers by using bonemeal.",
+      "contributors": {
+        "Trikzon": "Owner"
+      },
+      "contact": {
+        "homepage": "https://github.com/Trikzon/flourish",
+        "issues": "https://github.com/Trikzon/flourish/issues",
+        "sources": "https://github.com/Trikzon/flourish"
+      },
+      "icon": "assets/flourish/icon.png",
+      "license": "LGPL-3.0-or-later"
+    },
+    "intermediate_mappings": "net.fabricmc:intermediary",
+    "entrypoints": {
+      "init": "com.diontryban.mods.flourish.FlourishQuilt"
+    },
+    "depends": [
+      {
+        "id": "quilt_loader",
+        "versions": ">=0.17.6-"
+      },
+      {
+        "id": "quilted_fabric_api",
+        "versions": ">=5.0.0-"
+      },
+      {
+        "id": "minecraft",
+        "versions": ">=1.19.3"
+      },
+      {
+        "id": "ash",
+        "versions": ">=0.1.0"
+      }
+    ]
+  },
+  "mixin": [
+    "flourish.mixins.json",
+    "flourish.quilt.mixins.json"
+  ]
+}
