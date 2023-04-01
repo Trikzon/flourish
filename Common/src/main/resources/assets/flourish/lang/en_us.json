@@ -1,0 +1,6 @@
+{
+    "flourish.options.wither_rose": "Wither Rose",
+    "flourish.options.wither_rose.tooltip": "Allows wither roses to be spread by bonemeal.",
+    "flourish.options.use_tall_flower_behavior": "Use Tall Flower Behavior",
+    "flourish.options.use_tall_flower_behavior.tooltip": "Replaces Bedrock Edition behavior with classic Flora Doubling behavior. Essentially, instead of spreading small flowers it spawns a small flower item in the world."
+}

@@ -18,6 +18,9 @@
     "entrypoints": {
         "main": [
             "com.diontryban.mods.flourish.FlourishFabric"
+        ],
+        "client": [
+            "com.diontryban.mods.flourish.client.FlourishClientFabric"
         ]
     },
     "mixins": [

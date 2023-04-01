@@ -20,7 +20,8 @@
     },
     "intermediate_mappings": "net.fabricmc:intermediary",
     "entrypoints": {
-      "init": "com.diontryban.mods.flourish.FlourishQuilt"
+      "init": "com.diontryban.mods.flourish.FlourishQuilt",
+      "client_init": "com.diontryban.mods.flourish.client.FlourishClientQuilt"
     },
     "depends": [
       {

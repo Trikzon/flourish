@@ -22,7 +22,7 @@ public abstract class FlowerBlockMixin extends BushBlock implements Bonemealable
 
     @Override
     public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean isClient) {
-        return state.is(BlockTags.SMALL_FLOWERS) && (Flourish.config.witherRose || state.getBlock() != Blocks.WITHER_ROSE);
+        return state.is(BlockTags.SMALL_FLOWERS) && (Flourish.CONFIG.get().witherRose || state.getBlock() != Blocks.WITHER_ROSE);
     }
 
     @Override
@@ -32,7 +32,7 @@ public abstract class FlowerBlockMixin extends BushBlock implements Bonemealable
 
     @Override
     public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
-        if (Flourish.config.useTallFlowerBehavior) {
+        if (Flourish.CONFIG.get().useTallFlowerBehavior) {
             tallFlowerBehavior(level, pos);
         } else {
             bedrockEditionBehavior(level, random, pos);
