@@ -1,6 +1,6 @@
-package com.diontryban.mods.flourish.client;
+package com.diontryban.flourish.client;
 
-import com.diontryban.mods.flourish.Flourish;
+import com.diontryban.flourish.Flourish;
 import net.fabricmc.api.ClientModInitializer;
 
 public class FlourishClientFabric implements ClientModInitializer {

@@ -1,9 +1,9 @@
-package com.diontryban.mods.flourish.client.gui.screens;
+package com.diontryban.flourish.client.gui.screens;
 
-import com.diontryban.mods.ash.api.client.gui.screens.ModOptionsScreen;
-import com.diontryban.mods.ash.api.options.ModOptionsManager;
-import com.diontryban.mods.flourish.Flourish;
-import com.diontryban.mods.flourish.options.FlourishOptions;
+import com.diontryban.ash.api.client.gui.screens.ModOptionsScreen;
+import com.diontryban.ash.api.options.ModOptionsManager;
+import com.diontryban.flourish.Flourish;
+import com.diontryban.flourish.options.FlourishOptions;
 import net.minecraft.client.OptionInstance;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.screens.Screen;

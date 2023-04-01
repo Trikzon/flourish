@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "quilt_loader": {
-    "group": "com.diontryban.mods",
+    "group": "com.diontryban.flourish",
     "id": "flourish",
     "version": "${version}",
     "metadata": {
@@ -20,8 +20,8 @@
     },
     "intermediate_mappings": "net.fabricmc:intermediary",
     "entrypoints": {
-      "init": "com.diontryban.mods.flourish.FlourishQuilt",
-      "client_init": "com.diontryban.mods.flourish.client.FlourishClientQuilt"
+      "init": "com.diontryban.flourish.FlourishQuilt",
+      "client_init": "com.diontryban.flourish.client.FlourishClientQuilt"
     },
     "depends": [
       {

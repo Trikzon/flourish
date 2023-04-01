@@ -1,4 +1,4 @@
-package com.diontryban.mods.flourish;
+package com.diontryban.flourish;
 
 import net.fabricmc.api.ModInitializer;
 

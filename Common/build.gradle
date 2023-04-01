@@ -13,7 +13,7 @@ minecraft {
 dependencies {
     compileOnly group:'org.spongepowered', name:'mixin', version:'0.8.5'
 
-    compileOnly group: 'com.diontryban.mods', 'name': "ash-common-${minecraft_version}", version: ash_version
+    compileOnly group: 'com.diontryban.ash', 'name': "ash-common-${minecraft_version}", version: ash_version
 
     implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
 }

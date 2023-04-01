@@ -1,6 +1,6 @@
-package com.diontryban.mods.flourish;
+package com.diontryban.flourish;
 
-import com.diontryban.mods.flourish.client.FlourishClientForge;
+import com.diontryban.flourish.client.FlourishClientForge;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;

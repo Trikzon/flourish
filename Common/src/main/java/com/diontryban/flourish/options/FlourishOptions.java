@@ -1,6 +1,6 @@
-package com.diontryban.mods.flourish.options;
+package com.diontryban.flourish.options;
 
-import com.diontryban.mods.ash.api.options.ModOptions;
+import com.diontryban.ash.api.options.ModOptions;
 import com.google.gson.annotations.SerializedName;
 
 public class FlourishOptions extends ModOptions {

@@ -1,4 +1,4 @@
-package com.diontryban.mods.flourish;
+package com.diontryban.flourish;
 
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;

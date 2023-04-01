@@ -1,6 +1,6 @@
-package com.diontryban.mods.flourish.client;
+package com.diontryban.flourish.client;
 
-import com.diontryban.mods.flourish.Flourish;
+import com.diontryban.flourish.Flourish;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.client.ClientModInitializer;
 

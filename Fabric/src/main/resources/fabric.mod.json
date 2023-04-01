@@ -17,10 +17,10 @@
     "environment": "*",
     "entrypoints": {
         "main": [
-            "com.diontryban.mods.flourish.FlourishFabric"
+            "com.diontryban.flourish.FlourishFabric"
         ],
         "client": [
-            "com.diontryban.mods.flourish.client.FlourishClientFabric"
+            "com.diontryban.flourish.client.FlourishClientFabric"
         ]
     },
     "mixins": [
@@ -29,7 +29,7 @@
     ],
     "depends": {
         "fabric": "*",
-        "minecraft": "1.19.3",
+        "minecraft": ">=1.19.3",
         "java": ">=17",
         "ash": ">=0.1.0"
     },

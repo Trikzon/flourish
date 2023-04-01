@@ -10,7 +10,7 @@ plugins {
 archivesBaseName = "${mod_id}-forge-${minecraft_version}"
 
 minecraft {
-    mappings channel: 'parchment', version: "${parchment_version}-${minecraft_version}"
+    mappings channel: 'parchment', version: "${parchment_mc_version}-${parchment_version}-${minecraft_version}"
     
     runs {
         client {
@@ -73,7 +73,7 @@ dependencies {
 
     annotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
 
-    implementation fg.deobf("com.diontryban.mods:ash-forge-${minecraft_version}:${ash_version}")
+    implementation fg.deobf("com.diontryban.ash:ash-forge-${minecraft_version}:${ash_version}")
 
     compileOnly project(':Common')
 }

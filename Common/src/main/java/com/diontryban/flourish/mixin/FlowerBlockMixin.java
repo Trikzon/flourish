@@ -1,6 +1,6 @@
-package com.diontryban.mods.flourish.mixin;
+package com.diontryban.flourish.mixin;
 
-import com.diontryban.mods.flourish.Flourish;
+import com.diontryban.flourish.Flourish;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -101,7 +101,7 @@ public abstract class FlowerBlockMixin extends BushBlock implements Bonemealable
             double d6 = (double)pPos.getX() + d5 + randomsource.nextDouble() * d0 * 2.0D;
             double d7 = (double)pPos.getY() + randomsource.nextDouble() * d1;
             double d8 = (double)pPos.getZ() + d5 + randomsource.nextDouble() * d0 * 2.0D;
-            if (!pLevel.getBlockState((new BlockPos(d6, d7, d8)).below()).isAir()) {
+            if (!pLevel.getBlockState(BlockPos.containing(d6, d7, d8).below()).isAir()) {
                 pLevel.sendParticles(ParticleTypes.HAPPY_VILLAGER, d6, d7, d8, 1, d2, d3, d4, d9);
             }
         }

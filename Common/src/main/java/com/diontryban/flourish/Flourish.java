@@ -1,7 +1,7 @@
-package com.diontryban.mods.flourish;
+package com.diontryban.flourish;
 
-import com.diontryban.mods.ash.api.options.ModOptionsManager;
-import com.diontryban.mods.flourish.options.FlourishOptions;
+import com.diontryban.ash.api.options.ModOptionsManager;
+import com.diontryban.flourish.options.FlourishOptions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
