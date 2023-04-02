@@ -46,6 +46,9 @@ loom {
             runDir('run')
         }
     }
+    mixin {
+        defaultRefmapName = "${mod_id}.refmap.json"
+    }
 }
 
 
