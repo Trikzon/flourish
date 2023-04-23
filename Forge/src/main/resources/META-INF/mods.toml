@@ -28,11 +28,11 @@ Create more small flowers by using bonemeal.
 [[dependencies.flourish]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.19.3,1.20)"
+    versionRange="[1.19.4,1.20)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.flourish]]
     modId="ash"
     mandatory=true
-    versionRange="[0.1.0,)"
+    versionRange="[1.0.0-rc.1,2.0.0)"
