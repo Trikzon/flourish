@@ -2,8 +2,10 @@ plugins {
     id 'java'
     id 'eclipse'
     id 'maven-publish'
-    id 'net.minecraftforge.gradle' version '5.1.+'
+    id 'net.minecraftforge.gradle' version '6.0.+'
     id 'org.spongepowered.mixin' version '0.7.+'
+    id 'com.modrinth.minotaur' version '2.+'
+    id 'io.github.CDAGaming.cursegradle' version '1.6.1'
 }
 
 archivesBaseName = "${mod_id}-forge-${minecraft_version}"
@@ -100,6 +102,42 @@ publishing {
     repositories {
         maven {
             url 'file://' + System.getenv('local_maven')
+        }
+    }
+}
+
+modrinth {
+    token = System.getenv("MODRINTH_TOKEN")
+    projectId = 'nNI4DwbW'
+    versionNumber = "${project.version}-forge"
+    versionName = "[Forge ${project.minecraft_version}] v${project.version}"
+    versionType = 'release'
+    changelog = rootProject.file('MINI_CHANGELOG.md').text
+    uploadFile = jar
+    gameVersions = ['1.19.4']
+    loaders = ['forge']
+    dependencies {
+        required.project 'ash-api'
+    }
+}
+
+curseforge {
+    apiKey = System.getenv('CURSEFORGE_TOKEN')
+    project {
+        id = '332831'
+        releaseType = 'release'
+        changelog = rootProject.file('MINI_CHANGELOG.md').text
+        changelogType = 'markdown'
+        mainArtifact(jar) {
+            it.displayName = "[Forge ${project.minecraft_version}] v${project.version}"
+        }
+        addGameVersion 'Forge'
+        addGameVersion 'Client'
+        addGameVersion 'Server'
+        addGameVersion 'Java 17'
+        addGameVersion '1.19.4'
+        relations {
+            it.requiredDependency 'ash-api'
         }
     }
 }
