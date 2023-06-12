@@ -91,7 +91,7 @@ modrinth {
     versionType = 'release'
     changelog = rootProject.file('MINI_CHANGELOG.md').text
     uploadFile = remapJar
-    gameVersions = ['1.19.4']
+    gameVersions = ['1.20']
     loaders = ['fabric']
     dependencies {
         required.project 'ash-api'
@@ -112,7 +112,7 @@ curseforge {
         addGameVersion 'Client'
         addGameVersion 'Server'
         addGameVersion 'Java 17'
-        addGameVersion '1.19.4'
+        addGameVersion '1.20'
         relations {
             it.requiredDependency 'ash-api'
         }

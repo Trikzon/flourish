@@ -1,6 +1,4 @@
-## v1.0.0
-- Rebranded to Flourish from Flora Doubling
-- Updated to MC 1.19.4
-- Change behavior to be like bedrock. Old behavior can be chosen through the config.
+## v2.0.0
+- Update to MC 1.20
 
-A full changelog is hosted on [GitHub](https://github.com/Trikzon/flourish/blob/1.19.4/CHANGELOG.md).
+A full changelog is hosted on [GitHub](https://github.com/Trikzon/flourish/blob/1.20/CHANGELOG.md).

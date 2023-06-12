@@ -1,4 +1,7 @@
 # Changelog
+## v2.0.0
+- Update to MC 1.20
+
 ## v1.0.0
 - Rebranded to Flourish from Flora Doubling
 - Updated to MC 1.19.4
