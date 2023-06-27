@@ -41,7 +41,9 @@ public abstract class FlowerBlockMixin extends BushBlock implements Bonemealable
 
     @Override
     public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean isClient) {
-        return state.is(BlockTags.SMALL_FLOWERS) && (Flourish.CONFIG.get().witherRose || state.getBlock() != Blocks.WITHER_ROSE);
+        return state.is(BlockTags.SMALL_FLOWERS)
+                && (Flourish.CONFIG.get().witherRose || state.getBlock() != Blocks.WITHER_ROSE)
+                && (Flourish.CONFIG.get().torchflower || state.getBlock() != Blocks.TORCHFLOWER);
     }
 
     @Override

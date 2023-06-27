@@ -1,4 +1,8 @@
 # Changelog
+## v2.2.0+1.20
+- Disable flower spread for torchflowers by default.
+- Add a config option to enable torchflower spread.
+
 ## v2.1.0+1.20
 - Update build scripts
 - Require `ash_api` instead of `ash`

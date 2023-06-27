@@ -1,6 +1,5 @@
-## v2.1.0+1.20
-- Update build scripts
-- Require `ash_api` instead of `ash`
-- Add minecraft version to the end of version number
+## v2.2.0+1.20
+- Disable flower spread for torchflowers by default.
+- Add a config option to enable torchflower spread.
 
 A full changelog is hosted on [GitHub](https://github.com/Trikzon/flourish/blob/1.20/CHANGELOG.md).

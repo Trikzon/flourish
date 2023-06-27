@@ -25,6 +25,7 @@ import com.google.gson.annotations.SerializedName;
 public class FlourishOptions extends ModOptions {
     @SerializedName("wither_rose")
     public boolean witherRose = false;
+    public boolean torchflower = false;
     @SerializedName("use_tall_flower_behavior")
     public boolean useTallFlowerBehavior = false;
 

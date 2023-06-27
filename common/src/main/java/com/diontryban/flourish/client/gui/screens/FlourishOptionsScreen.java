@@ -42,6 +42,12 @@ public class FlourishOptionsScreen extends ModOptionsScreen<FlourishOptions> {
                 value -> options.get().witherRose = value
         ));
         this.list.addBig(OptionInstance.createBoolean(
+                "flourish.options.torchflower",
+                value -> Tooltip.create(Component.translatable("flourish.options.torchflower.tooltip")),
+                options.get().torchflower,
+                value -> options.get().torchflower = value
+        ));
+        this.list.addBig(OptionInstance.createBoolean(
                 "flourish.options.use_tall_flower_behavior",
                 value -> Tooltip.create(Component.translatable("flourish.options.use_tall_flower_behavior.tooltip")),
                 options.get().useTallFlowerBehavior,

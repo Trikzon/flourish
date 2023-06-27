@@ -13,9 +13,10 @@ The configuration file is located at `.minecraft/config/flourish.json`. It can a
 ### Default Config File
 ```json
 {
-  "version": 1,
-  "wither_rose": false,
-  "use_tall_flower_behavior": false
+    "version": 1,
+    "wither_rose": false, 
+    "torchflower": false,
+    "use_tall_flower_behavior": false
 }
 ```
 
