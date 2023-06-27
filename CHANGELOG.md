@@ -1,4 +1,7 @@
 # Changelog
+## v3.0.0+1.20.1
+- Update to MC 1.20.1
+
 ## v2.2.0+1.20
 - Disable flower spread for torchflowers by default.
 - Add a config option to enable torchflower spread.
