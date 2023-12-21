@@ -19,19 +19,13 @@
 
 package com.diontryban.flourish;
 
-import com.diontryban.ash.api.modloader.forge.ForgeModLoader;
+import com.diontryban.ash_api.modloader.ForgeModInitializer;
 import com.diontryban.flourish.client.FlourishClientForge;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.fml.DistExecutor;
-import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod(Flourish.MOD_ID)
-public class FlourishForge {
+public class FlourishForge extends ForgeModInitializer {
     public FlourishForge() {
-        ForgeModLoader.registerMod(Flourish.MOD_ID, ModLoadingContext.get(), FMLJavaModLoadingContext.get());
-        Flourish.init();
-        DistExecutor.safeCallWhenOn(Dist.CLIENT, () -> FlourishClientForge::new);
+        super(Flourish.MOD_ID, Flourish::new, FlourishClientForge::new);
     }
 }

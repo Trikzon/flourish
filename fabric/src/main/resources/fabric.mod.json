@@ -1,19 +1,19 @@
 {
     "schemaVersion": 1,
-    "id": "flourish",
+    "id": "${mod_id}",
     "version": "${version}",
-    "name": "Flourish",
-    "description": "Create more small flowers by using bonemeal.",
+    "name": "${mod_name}",
+    "description": "${description}",
     "authors": [
-        "Trikzon"
+        "${mod_author}"
     ],
     "contact": {
-        "homepage": "https://github.com/Trikzon/flourish",
+        "homepage": "https://modrinth.com/mod/flourish",
         "sources": "https://github.com/Trikzon/flourish",
         "issues": "https://github.com/Trikzon/flourish/issues"
     },
-    "license": "LGPL-3.0-or-later",
-    "icon": "assets/flourish/icon.png",
+    "license": "${license}",
+    "icon": "assets/${mod_id}/icon.png",
     "environment": "*",
     "entrypoints": {
         "main": [
@@ -24,15 +24,12 @@
         ]
     },
     "mixins": [
-        "flourish.mixins.json",
-        "flourish.fabric.mixins.json"
+        "${mod_id}.mixins.json",
+        "${mod_id}.fabric.mixins.json"
     ],
     "depends": {
-        "fabric": "*",
-        "minecraft": "^1.20.1",
-        "java": ">=17",
-        "ash_api": "^3.0.0"
-    },
-    "suggests": {
+        "minecraft": "1.20.2",
+        "ash_api": "^20.2.0-alpha"
     }
 }
+  

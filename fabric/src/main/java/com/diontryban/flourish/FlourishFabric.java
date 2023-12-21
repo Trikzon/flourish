@@ -19,11 +19,10 @@
 
 package com.diontryban.flourish;
 
-import net.fabricmc.api.ModInitializer;
+import com.diontryban.ash_api.modloader.FabricModInitializer;
 
-public class FlourishFabric implements ModInitializer {
-    @Override
-    public void onInitialize() {
-        Flourish.init();
+public class FlourishFabric extends FabricModInitializer {
+    public FlourishFabric() {
+        super(Flourish::new);
     }
 }

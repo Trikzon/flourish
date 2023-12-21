@@ -32,6 +32,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 
 @Mixin(FlowerBlock.class)
 public abstract class FlowerBlockMixin extends BushBlock implements BonemealableBlock {
@@ -40,10 +41,10 @@ public abstract class FlowerBlockMixin extends BushBlock implements Bonemealable
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
         return state.is(BlockTags.SMALL_FLOWERS)
-                && (Flourish.CONFIG.get().witherRose || state.getBlock() != Blocks.WITHER_ROSE)
-                && (Flourish.CONFIG.get().torchflower || state.getBlock() != Blocks.TORCHFLOWER);
+                && (Flourish.OPTIONS.get().witherRose || state.getBlock() != Blocks.WITHER_ROSE)
+                && (Flourish.OPTIONS.get().torchflower || state.getBlock() != Blocks.TORCHFLOWER);
     }
 
     @Override
@@ -53,18 +54,20 @@ public abstract class FlowerBlockMixin extends BushBlock implements Bonemealable
 
     @Override
     public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
-        if (Flourish.CONFIG.get().useTallFlowerBehavior) {
-            tallFlowerBehavior(level, pos);
+        if (Flourish.OPTIONS.get().useTallFlowerBehavior) {
+            flourish$tallFlowerBehavior(level, pos);
         } else {
-            bedrockEditionBehavior(level, random, pos);
+            flourish$bedrockEditionBehavior(level, random, pos);
         }
     }
 
-    private void tallFlowerBehavior(ServerLevel level, BlockPos pos) {
+    @Unique
+    private void flourish$tallFlowerBehavior(ServerLevel level, BlockPos pos) {
         Block.popResource(level, pos, new ItemStack(this, 1));
     }
 
-    private void bedrockEditionBehavior(ServerLevel level, RandomSource random, BlockPos pos) {
+    @Unique
+    private void flourish$bedrockEditionBehavior(ServerLevel level, RandomSource random, BlockPos pos) {
         final int maxSuccesses = random.nextIntBetweenInclusive(1, 7);
         int successCounter = 0;
         for (int i = 0; i < 64 && successCounter < maxSuccesses; i++) {
@@ -81,7 +84,7 @@ public abstract class FlowerBlockMixin extends BushBlock implements Bonemealable
             if (this.mayPlaceOn(level.getBlockState(below), level, below)) {
                 if (level.getBlockState(newPos).isAir()) {
                     level.setBlock(newPos, this.defaultBlockState(), 1 | 2);
-                    addGrowthParticles(level, newPos, random.nextInt(14));
+                    flourish$addGrowthParticles(level, newPos, random.nextInt(14));
                     successCounter++;
                 }
             }
@@ -89,7 +92,8 @@ public abstract class FlowerBlockMixin extends BushBlock implements Bonemealable
     }
 
     // Copied from BoneMealItem and modified to work from the server side.
-    private static void addGrowthParticles(ServerLevel pLevel, BlockPos pPos, int pData) {
+    @Unique
+    private static void flourish$addGrowthParticles(ServerLevel pLevel, BlockPos pPos, int pData) {
         if (pData == 0) {
             pData = 15;
         }

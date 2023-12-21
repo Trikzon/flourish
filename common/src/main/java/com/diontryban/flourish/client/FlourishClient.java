@@ -19,12 +19,14 @@
 
 package com.diontryban.flourish.client;
 
-import com.diontryban.ash.api.client.gui.screens.ModOptionsScreenRegistry;
+import com.diontryban.ash_api.client.gui.screens.ModOptionsScreenRegistry;
+import com.diontryban.ash_api.modloader.CommonClientModInitializer;
 import com.diontryban.flourish.Flourish;
 import com.diontryban.flourish.client.gui.screens.FlourishOptionsScreen;
 
-public class FlourishClient {
-    public static void init() {
-        ModOptionsScreenRegistry.registerModOptionsScreen(Flourish.CONFIG, FlourishOptionsScreen::new);
+public class FlourishClient extends CommonClientModInitializer {
+    @Override
+    public void onInitializeClient() {
+        ModOptionsScreenRegistry.registerModOptionsScreen(Flourish.OPTIONS, FlourishOptionsScreen::new);
     }
 }

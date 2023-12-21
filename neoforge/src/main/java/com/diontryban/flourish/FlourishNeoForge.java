@@ -19,12 +19,13 @@
 
 package com.diontryban.flourish;
 
-import org.quiltmc.loader.api.ModContainer;
-import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
+import com.diontryban.ash_api.modloader.NeoForgeModInitializer;
+import com.diontryban.flourish.client.FlourishClientNeoForge;
+import net.neoforged.fml.common.Mod;
 
-public class FlourishQuilt implements ModInitializer {
-    @Override
-    public void onInitialize(ModContainer mod) {
-        Flourish.init();
+@Mod(Flourish.MOD_ID)
+public class FlourishNeoForge extends NeoForgeModInitializer {
+    public FlourishNeoForge() {
+        super(Flourish.MOD_ID, Flourish::new, FlourishClientNeoForge::new);
     }
 }

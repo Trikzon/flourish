@@ -19,8 +19,11 @@
 
 package com.diontryban.flourish.client;
 
-public class FlourishClientForge {
+import com.diontryban.ash_api.modloader.ForgeClientModInitializer;
+import com.diontryban.flourish.Flourish;
+
+public class FlourishClientForge extends ForgeClientModInitializer {
     public FlourishClientForge() {
-        FlourishClient.init();
+        super(Flourish.MOD_ID, FlourishClient::new);
     }
 }

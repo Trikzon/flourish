@@ -19,8 +19,8 @@
 
 package com.diontryban.flourish.client.gui.screens;
 
-import com.diontryban.ash.api.client.gui.screens.ModOptionsScreen;
-import com.diontryban.ash.api.options.ModOptionsManager;
+import com.diontryban.ash_api.client.gui.screens.ModOptionsScreen;
+import com.diontryban.ash_api.options.ModOptionsManager;
 import com.diontryban.flourish.Flourish;
 import com.diontryban.flourish.options.FlourishOptions;
 import net.minecraft.client.OptionInstance;
