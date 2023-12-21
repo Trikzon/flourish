@@ -24,3 +24,9 @@ mandatory = true
 versionRange = "${minecraft_version_range}"
 ordering = "NONE"
 side = "BOTH"
+[[dependencies.${mod_id}]]
+modId = "ash_api"
+mandatory = true
+versionRange = "[20.2.0-beta,20.3.0)"
+ordering = "NONE"
+side = "BOTH"
