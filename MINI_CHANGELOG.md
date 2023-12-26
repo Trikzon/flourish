@@ -1,4 +1,4 @@
-## v20.2.1
-- Added Ash API to required dependency list on Forge and NeoForge.
+## v20.4.0
+- Updated to MC 1.20.4.
 
-A full changelog is hosted on [GitHub](https://github.com/Trikzon/flourish/blob/1.20.2/CHANGELOG.md).
+A full changelog is hosted on [GitHub](https://github.com/Trikzon/flourish/blob/1.20.4/CHANGELOG.md).

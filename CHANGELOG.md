@@ -1,4 +1,7 @@
 # Changelog
+## v20.4.0
+- Updated to MC 1.20.4.
+
 ## v20.2.1
 - Added Ash API to required dependency list on Forge and NeoForge.
 
