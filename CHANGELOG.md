@@ -1,5 +1,8 @@
 # Changelog
-## v20.1
+## v21.0.1
+- Update build scripts using [MDK Generator](https://github.com/Trikzon/mdk-generator). No functional changes.
+
+## v21.0.0
 - Update to MC 1.21.
 
 ## v20.6.0
