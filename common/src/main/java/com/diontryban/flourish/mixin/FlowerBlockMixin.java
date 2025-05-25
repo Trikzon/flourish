@@ -21,8 +21,6 @@ package com.diontryban.flourish.mixin;
 
 import com.diontryban.flourish.Flourish;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
@@ -31,6 +29,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 
@@ -61,6 +60,15 @@ public abstract class FlowerBlockMixin extends BushBlock implements Bonemealable
         }
     }
 
+    @Override
+    public @NotNull Type getType() {
+        if (Flourish.OPTIONS.get().useTallFlowerBehavior) {
+            return Type.GROWER;
+        } else {
+            return Type.NEIGHBOR_SPREADER;
+        }
+    }
+
     @Unique
     private void flourish$tallFlowerBehavior(ServerLevel level, BlockPos pos) {
         Block.popResource(level, pos, new ItemStack(this, 1));
@@ -84,50 +92,8 @@ public abstract class FlowerBlockMixin extends BushBlock implements Bonemealable
             if (this.mayPlaceOn(level.getBlockState(below), level, below)) {
                 if (level.getBlockState(newPos).isAir()) {
                     level.setBlock(newPos, this.defaultBlockState(), 1 | 2);
-                    flourish$addGrowthParticles(level, newPos, random.nextInt(14));
                     successCounter++;
                 }
-            }
-        }
-    }
-
-    // Copied from BoneMealItem and modified to work from the server side.
-    @Unique
-    private static void flourish$addGrowthParticles(ServerLevel pLevel, BlockPos pPos, int pData) {
-        if (pData == 0) {
-            pData = 15;
-        }
-
-        BlockState blockstate = pLevel.getBlockState(pPos);
-        double d0 = 0.5D;
-        double d1;
-        if (blockstate.is(Blocks.WATER)) {
-            pData *= 3;
-            d1 = 1.0D;
-            d0 = 3.0D;
-        } else if (blockstate.isSolidRender(pLevel, pPos)) {
-            pPos = pPos.above();
-            pData *= 3;
-            d0 = 3.0D;
-            d1 = 1.0D;
-        } else {
-            d1 = blockstate.getShape(pLevel, pPos).max(Direction.Axis.Y);
-        }
-
-        pLevel.sendParticles(ParticleTypes.HAPPY_VILLAGER, (double)pPos.getX() + 0.5D, (double)pPos.getY() + 0.5D, (double)pPos.getZ() + 0.5D, 1, 0.0D, 0.0D, 0.0D, 0.0D);
-        RandomSource randomsource = pLevel.getRandom();
-
-        for(int i = 0; i < pData; ++i) {
-            double d2 = randomsource.nextGaussian() * 0.02D;
-            double d3 = randomsource.nextGaussian() * 0.02D;
-            double d4 = randomsource.nextGaussian() * 0.02D;
-            double d9 = randomsource.nextGaussian() * 0.02D;
-            double d5 = 0.5D - d0;
-            double d6 = (double)pPos.getX() + d5 + randomsource.nextDouble() * d0 * 2.0D;
-            double d7 = (double)pPos.getY() + randomsource.nextDouble() * d1;
-            double d8 = (double)pPos.getZ() + d5 + randomsource.nextDouble() * d0 * 2.0D;
-            if (!pLevel.getBlockState(BlockPos.containing(d6, d7, d8).below()).isAir()) {
-                pLevel.sendParticles(ParticleTypes.HAPPY_VILLAGER, d6, d7, d8, 1, d2, d3, d4, d9);
             }
         }
     }
