@@ -1,3 +1,3 @@
-- Update build scripts using [MDK Generator](https://github.com/Trikzon/mdk-generator). No functional changes.
+- Update to MC 1.21.1.
 
-A full changelog is hosted on [GitHub](https://github.com/Trikzon/flourish/blob/1.21/CHANGELOG.md).
+A full changelog is hosted on [GitHub](https://github.com/Trikzon/flourish/blob/1.21.1/CHANGELOG.md).
