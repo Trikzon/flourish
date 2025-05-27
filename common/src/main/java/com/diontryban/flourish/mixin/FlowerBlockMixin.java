@@ -34,7 +34,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 
 @Mixin(FlowerBlock.class)
-public abstract class FlowerBlockMixin extends BushBlock implements BonemealableBlock {
+public abstract class FlowerBlockMixin extends VegetationBlock implements BonemealableBlock {
     protected FlowerBlockMixin(Properties properties) {
         super(properties);
     }
